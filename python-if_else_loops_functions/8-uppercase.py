@@ -3,16 +3,15 @@
 def uppercase(str):
 
     '''Function put str in UPPERCASE 97 = 'a' and 122 = 'z'
-                                            -32 (to get UPPERCASE)
+                -32 (to get UPPERCASE) chr(65) is 'A' chr(90) is 'Z'.
     args: str
     return: none
     '''
-    result = ""
+    UPit = ""
 
     for char in str:
         if 97 <= ord(char) <= 122:
-            result += chr(ord(char) - 32)
+            UPit += chr(ord(char) - 32)
         else:
-            result += char
-    print("{}".format(result))
-
+            UPit += char
+    print("{}".format(UPit))
