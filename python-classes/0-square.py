@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-
-""" Module to create a Class square """
-# créer une class square
-
+""" Module for Class square """
 
 class Square:
 
-    """ Represent a square """
+    """ Simple class square """
     pass
