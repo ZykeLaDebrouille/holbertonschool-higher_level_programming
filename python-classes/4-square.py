@@ -6,7 +6,7 @@ class Square:
     """ Simple class square """
     def __init__(self, size=0,):
         '''Initialization '''
-        self.__size = size
+        self.size = size
 
     def area(self):
         """Return the area (air)"""
