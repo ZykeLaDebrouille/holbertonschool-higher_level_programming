@@ -5,6 +5,7 @@
 class Rectangle:
     """class rectangle"""
     def __init__(self, width=0, height=0):
+        """Initalization of instance attrib"""
         self.width = width
         self.height = height
 
