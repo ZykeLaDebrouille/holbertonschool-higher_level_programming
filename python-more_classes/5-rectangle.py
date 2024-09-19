@@ -63,4 +63,5 @@ class Rectangle:
         return "Rectangle({}, {})".format(self.width, self.height)
 
     def __del__(self):
+        """Delete an instance"""
         print("Bye rectangle...")
