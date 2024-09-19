@@ -4,7 +4,6 @@
 
 class Square:
     """ Simple class square """
-    """ Simple class square """
     def __init__(self, size=0):
         '''Initialization '''
         if not isinstance(size, int):
