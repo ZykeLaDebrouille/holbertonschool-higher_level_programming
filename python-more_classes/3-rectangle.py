@@ -6,7 +6,7 @@ class Rectangle:
     """class rectangle"""
     def __init__(self, width=0, height=0):
         self.width = width
-        self.height= height
+        self.height = height
 
     @property
     def width(self):
@@ -16,7 +16,7 @@ class Rectangle:
     @width.setter
     def width(self, value):
         """Setter method"""
-        if not isinstance(value ,int):
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError(" width must be >= 0")
@@ -30,7 +30,7 @@ class Rectangle:
     @height.setter
     def height(self, value):
         """Setter method"""
-        if not isinstance(value ,int):
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError(" width must be >= 0")
@@ -56,4 +56,3 @@ class Rectangle:
             if i != self.__height - 1:
                 rectangle.append("\n")
         return "".join(rectangle)
-
