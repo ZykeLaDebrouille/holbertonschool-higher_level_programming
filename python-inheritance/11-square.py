@@ -45,4 +45,4 @@ class Square(Rectangle):
 
     def __str__(self):
         '''This method returns a string representation of the square.'''
-        return '[Square] ' + str(self.__width) + '/' + str(self.__height)
+        return '[Square] ' + str(self.__size) + '/' + str(self.__size)
