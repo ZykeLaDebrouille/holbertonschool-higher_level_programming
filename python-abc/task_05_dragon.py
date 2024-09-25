@@ -1,5 +1,15 @@
 #!/usr/bin/python3
-# The Mystical Dragon - Mastering Mixins
-# Define SwimMixin and FlyMixin
-# Implement Dragon class that inherits from both and has a roar method
+"""Module for Dragon class."""
 
+
+class SwimMixin:
+    def swim(self):
+        print("The creature swims!")
+
+class FlyMixin:
+    def fly(self):
+        print("The creature flies!")
+
+class Dragon(SwimMixin, FlyMixin):
+    def roar(self):
+        print("The dragon roars!")
