@@ -50,7 +50,7 @@ class Rectangle(Shape):
         return 2 * (self.width + self.height)
 
 
-def shape_info(shape):
+def shape_info(arg):
     '''This function prints the area and perimeter of a shape.'''
-    print(f"Area: {shape.area()}")
-    print(f"Perimeter: {shape.perimeter()}")
+    print(f"Area: {arg.area()}")
+    print(f"Perimeter: {arg.perimeter()}")
