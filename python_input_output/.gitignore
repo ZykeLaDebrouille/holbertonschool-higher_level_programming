@@ -1,6 +1,0 @@
-*-main.py
-__pycache__
-.*
-.gitignore
-*.txt
-*.json
