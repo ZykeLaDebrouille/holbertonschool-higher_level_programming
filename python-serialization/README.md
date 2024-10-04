@@ -1,6 +1,3 @@
-Voici tout le contenu du fichier `README.md` que tu peux copier directement :
-
-```markdown
 # Python Serialization Project
 
 ## Overview
