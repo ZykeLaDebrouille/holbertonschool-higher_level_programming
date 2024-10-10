@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """Module that countain
     a basic Python script to fetch posts from JSONPlaceholder"""
-import requests as req
+import requests
 import csv
 
 
 def fetch_and_print_posts():
     """ Fetches data from an API and prints post titles """
-    r = req.get("https://jsonplaceholder.typicode.com/posts")
+    r = requests.get("https://jsonplaceholder.typicode.com/posts")
     posts = r.json()
     if r.status_code == 200:
         print("Status Code: 200")
@@ -19,7 +19,7 @@ def fetch_and_print_posts():
 
 def fetch_and_save_posts():
     ''' Fetches data from an API and saves it to a CSV file '''
-    r = req.get("https://jsonplaceholder.typicode.com/posts")
+    r = requests.get("https://jsonplaceholder.typicode.com/posts")
     posts = r.json()
     if r.status_code == 200:
         # Définir champs du fichier CSV
