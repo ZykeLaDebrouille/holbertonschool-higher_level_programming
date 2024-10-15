@@ -4,19 +4,18 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
-# Constants
-CONTENT_TYPE_JSON = 'application/json'
-CONTENT_TYPE_TEXT = 'text/plain'
-
 
 class MyHandler(BaseHTTPRequestHandler):
     ''' Handler for HTTP requests '''
 
     def do_GET(self):
         """gérer les différents endpoint avec code 200"""
+        # Log pour afficher la requête reçue
+        print(f"Requête reçue: {self.command} {self.path}") 
+
         if self.path == '/':
             self.send_response(200)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")  # str en bytes
 
@@ -40,10 +39,20 @@ class MyHandler(BaseHTTPRequestHandler):
             }
             self.wfile.write(bytes(json.dumps(status), "utf8"))
 
+        elif self.path == '/info':
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            info = {
+                'version': '1.0',
+                'description': 'A simple API built with http.server'
+            }
+            self.wfile.write(bytes(json.dumps(info), "utf8"))
+
         else:
             """gérer les endpoints failed"""
             self.send_response(404)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b'404 Not found')
 
