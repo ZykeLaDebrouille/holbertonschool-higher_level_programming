@@ -1,86 +1,68 @@
-#!/usr/bin/python3
-from flask import Flask, jsonify, request
+Voici une version avec des descriptions plus brèves :
+
+#!/usr/bin/env python3
+"""
+Flask app with endpoints for:
+- Root URL: Welcome message
+- /data: List of usernames
+- /status: API status
+- /users/<username>: Get user info
+- /add_user: Add new user via POST
+"""
+
+from typing import Dict, Any
+from flask import Flask, jsonify, request, Response
 
 app = Flask(__name__)
 
-# Stockage des utilisateurs en mémoire
-users = {
-    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
-}
+# In-memory users dictionary
+users: Dict[str, Dict[str, Any]] = {}
 
-
-# Endpoint racine
 @app.route('/')
 def home():
-    return "Welcome to the Flask API!"
+    """ Root URL: Returns welcome message """
+    return Response("Welcome to the Flask API!", mimetype='text/plain')
 
-
-# Endpoint pour obtenir la liste des utilisateurs
-@app.route('/data', methods=['GET'])
+@app.route('/data')
 def get_users():
-    return jsonify(list(users.keys()))  # Renvoie juste les usernames
+    """ Returns list of usernames in JSON """
+    return jsonify(list(users.keys()))
 
-
-# Endpoint pour vérifier le statut de l'API
-@app.route('/status', methods=['GET'])
+@app.route('/status')
 def status():
-    return "OK"
+    """ Returns API status """
+    return Response("OK", mimetype='text/plain')
 
-
-# Endpoint pour obtenir un utilisateur par son username
-@app.route('/users/<username>', methods=['GET'])
+@app.route('/users/<username>')
 def get_user(username):
+    """ Retrieves user info or 404 error """
     user = users.get(username)
-    if user:
-        return jsonify(user)
-    else:
-        return jsonify({"error": "User not found"}), 404
+    return jsonify(user) if user else jsonify({"error": "User not found"}), 404
 
-
-# Endpoint pour ajouter un utilisateur (POST)
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    """
-    Handles POST requests to add a new user.
-
-    Expects JSON data containing 'username', 'name', 'age', and 'city'.
-
-    Returns:
-        Response: A confirmation message with the added user's data,
-                or an error message if 'username' is missing or a duplicate
-                with the same details exists.
-    """
+    """ Adds a new user via POST request """
     data = request.get_json()
-
     if not data or 'username' not in data:
         return jsonify({"error": "Username is required"}), 400
 
     username = data['username']
-
-    # Check if the same username with the same details exists
-    existing_user = users.get(username)
-    if existing_user and existing_user == {
-        "username": username,
-        "name": data.get("name"),
-        "age": data.get("age"),
-        "city": data.get("city")
+    if users.get(username) == {
+        "username": username, "name": data.get("name"),
+        "age": data.get("age"), "city": data.get("city")
     }:
-        return jsonify({
-            "error": "User with identical details already exists"
-        }), 400
+        return jsonify({"error": "User with identical details already exists"}), 400
 
-    # If the username exists but with different details, allow it
     users[username] = {
-        "username": username,
-        "name": data.get("name"),
-        "age": data.get("age"),
-        "city": data.get("city")
+        "username": username, "name": data.get("name"),
+        "age": data.get("age"), "city": data.get("city")
     }
-    return jsonify({
-        "message": "User added",
-        "user": users[username]
-    }), 201  # Use 201 Created for successful POST requests
+    return jsonify({"message": "User added", "user": users[username]}), 201
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """ Custom 404 error handler """
+    return jsonify({"error": str(e)}), 404
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
