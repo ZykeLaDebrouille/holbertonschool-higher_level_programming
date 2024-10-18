@@ -94,8 +94,8 @@ def add_user():
 
     Returns:
         Response: A confirmation message with the added user's data,
-                  or an error message if 'username' is missing or a duplicate
-                  with the same details exists.
+                or an error message if 'username' is missing or a duplicate
+                with the same details exists.
     """
     data = request.get_json()
 
