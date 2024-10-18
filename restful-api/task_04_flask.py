@@ -76,7 +76,7 @@ def get_user(username):
 
     Returns:
         Response: A JSON object of the user's details if found,
-                  otherwise a JSON error message with a 404 status code.
+                otherwise a JSON error message with a 404 status code.
     """
     user = users.get(username)
     if user:
