@@ -2,6 +2,9 @@
 
 This project covers the basics of SQL, using MySQL as the database management system.
 
+## HELPER : SQL CHEATSHEET FROM [NOZIOP](https://github.com/Noziop) :
+###### [SQL CLEAN SHEET](https://github.com/Noziop/usefull_tools/blob/main/SQL/SQL-cheat_sheet.md)
+---
 ## Tasks
 
 ### 0. List databases
@@ -118,3 +121,6 @@ Write a script that lists the number of records with the same score from the tab
 Write a script that lists all records from the table second_table of the database hbtn_0c_0, excluding rows without a name value.
 - Results should display score and name (in this order).
 - Records should be listed by descending score.
+
+Authors :
+[Zyke](https://github.com/ZykeLaDebrouille)
