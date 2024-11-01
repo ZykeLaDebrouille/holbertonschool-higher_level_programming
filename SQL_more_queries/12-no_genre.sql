@@ -1,0 +1,1 @@
+-- SQL script for task 12-no_genre
