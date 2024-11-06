@@ -4,6 +4,9 @@ This project covers the basics of SQL, using MySQL as the database management sy
 
 ## HELPER : SQL CHEATSHEET FROM [NOZIOP](https://github.com/Noziop) :
 ###### [SQL CLEAN SHEET](https://github.com/Noziop/usefull_tools/blob/main/SQL/SQL-cheat_sheet.md)
+
+## HELPER DOCUMENTATION FROM [ARC](https://github.com/ArcturusSky) :
+###### [SQL Documentation](https://github.com/ArcturusSky/holbertonschool-higher_level_programming/blob/main/SQL_introduction/FULL_COMMANDS.md)
 ---
 ## Tasks
 
