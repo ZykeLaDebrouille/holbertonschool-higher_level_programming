@@ -2,8 +2,8 @@
 
 let button = document.getElementById('add_item');
 button.addEventListener('click', function() {
-    let ulElement = document.querySelector('ul');
+    let MyList = document.querySelector('.my_list');
     let ElementToAdd = document.createElement('li');
     ElementToAdd.textContent = 'Item';
-    ulElement.appendChild(ElementToAdd);
+    MyList.appendChild(ElementToAdd);
 });

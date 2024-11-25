@@ -1,5 +1,5 @@
 // Fetch data from the HelloSalut API for the French translation of "Hello"
-fetch('https://fourtonfish.com/hellosalut/?lang=fr')
+fetch('https://hellosalut.stefanbohacek.dev/?lang=fr')
     .then(response => {
         // Check if the response is okay and convert it to JSON
         if (!response.ok) {
